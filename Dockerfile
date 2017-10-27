@@ -22,3 +22,10 @@ RUN chmod +rw /usr/local/bin/nextflow
 RUN install2.r rslurm
 RUN echo session-timeout-minutes=30 >>/etc/rstudio/rsession.conf
 RUN echo limit-file-upload-size-mb=10240 >>/etc/rstudio/rsession.conf
+
+# Install singularity
+RUN apt-get update
+RUN apt-get -y install build-essential curl git sudo man vim autoconf libtool default-jdk
+RUN apt-get -y install python
+RUN git clone https://github.com/singularityware/singularity.git
+RUN cd singularity && ./autogen.sh && ./configure --prefix=/usr/local && make && make install
