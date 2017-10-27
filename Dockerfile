@@ -3,7 +3,7 @@ FROM rocker/verse
 ENV SLURM_VER=16.05.3
 
 RUN apt-get update && apt-get -y  dist-upgrade
-RUN apt-get install -y munge curl gcc make bzip2 supervisor python python-dev \
+RUN apt-get install -y squashfs-tools munge curl gcc make bzip2 supervisor python python-dev \
     libmunge-dev libmunge2 lua5.2 lua5.2-dev libopenmpi-dev openmpi-bin \
     gfortran vim python-mpi4py python-numpy python-psutil sudo psmisc \
     software-properties-common iputils-ping \
