@@ -29,3 +29,6 @@ RUN apt-get -y install build-essential curl git sudo man vim autoconf libtool de
 RUN apt-get -y install python
 RUN git clone https://github.com/singularityware/singularity.git
 RUN cd singularity && git checkout development && ./autogen.sh && ./configure --prefix=/usr/local && make && make install
+ADD userconf.sh /userconf.sh
+RUN chmod +x /userconf.sh
+CMD "/userconf.sh"
