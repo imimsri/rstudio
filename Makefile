@@ -1,2 +1,2 @@
 build:
-	docker build -t rstudio .
+	docker build -t rstudio:development .
