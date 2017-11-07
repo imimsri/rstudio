@@ -3,7 +3,8 @@ FROM rocker/verse
 ENV SLURM_VER=16.05.11
 
 RUN apt-get update && apt-get -y  dist-upgrade
-RUN apt-get install -y squashfs-tools munge curl gcc make bzip2 supervisor python python-dev \
+RUN apt-get install -y libblas-dev liblapack-dev squashfs-tools munge curl gcc \
+    make bzip2 supervisor python python-dev \
     libmunge-dev libmunge2 lua5.2 lua5.2-dev libopenmpi-dev openmpi-bin \
     gfortran vim python-mpi4py python-numpy python-psutil sudo psmisc \
     software-properties-common iputils-ping \
@@ -11,8 +12,6 @@ RUN apt-get install -y squashfs-tools munge curl gcc make bzip2 supervisor pytho
 RUN echo deb http://ftp.de.debian.org/debian stretch main  >>/etc/apt/sources.list.d/testing.list
 RUN apt-get update
 RUN apt-get install -y munge
-#RUN apt-get install -y slurm-wlm munge
-# Provem instal·lar slurm compilant
 RUN curl -fsL https://download.schedmd.com/slurm/slurm-16.05.11.tar.bz2 | tar xfj - -C /opt/ && \
     cd /opt/slurm-${SLURM_VER}/ && \
     ./configure && make && make install
