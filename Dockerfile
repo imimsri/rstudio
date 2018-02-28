@@ -22,7 +22,7 @@ RUN chmod +rw /usr/local/bin/nextflow
 RUN install2.r rslurm
 RUN echo session-timeout-minutes=30 >>/etc/rstudio/rsession.conf
 RUN echo limit-file-upload-size-mb=10240 >>/etc/rstudio/rsession.conf
-RUN useradd -u 2001 -d /home/slurm slurm
+
 
 # Install singularity
 RUN apt-get update
