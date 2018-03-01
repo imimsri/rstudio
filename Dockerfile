@@ -8,7 +8,7 @@ RUN apt-get install -y libblas-dev liblapack-dev squashfs-tools munge curl gcc \
     libmunge-dev libmunge2 lua5.2 lua5.2-dev libopenmpi-dev openmpi-bin \
     gfortran vim python-mpi4py python-numpy python-psutil sudo psmisc \
     software-properties-common iputils-ping \
-    openssh-server openssh-client default-jdk
+    openssh-server openssh-client default-jdk libuuid-devel
 RUN echo deb http://ftp.de.debian.org/debian stretch main  >>/etc/apt/sources.list.d/testing.list
 RUN apt-get update
 RUN apt-get install -y munge
